@@ -173,6 +173,7 @@ int main(int argc, char **argv) {
     // part 1
 
     for (int m=0; m<nmoves; m++) {
+        printmap(moves[m]);
         move(ypos, xpos, moves[m]);
         if (map[ypos][xpos] == '.') {
             ypos += dirs[moves[m]].dy;
