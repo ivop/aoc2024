@@ -114,7 +114,10 @@ void printmap(int move) {
     printf("[H");
     for (int y=0; y<height; y++) {
         for (int x=0; x<width; x++) {
-            putchar(map[y][x]);
+            char c = map[y][x];
+            if (c == '#') c=' ', printf("[7m");
+            putchar(c);
+            printf("[0m");
         }
         putchar('\n');
     }
