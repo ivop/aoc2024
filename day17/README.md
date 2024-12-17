@@ -1,8 +1,8 @@
-* part 1
+### part 1  
 ```
 ./p1 < input
 ```
-* part 2
+### part 2  
 Wasn't sure how many times I had to run the emulated program, so I wrote
 a small disassembler/transpiler.
 
