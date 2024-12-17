@@ -3,15 +3,18 @@
 #include <string.h>
 #include <stdlib.h>
 
-uint64_t A, B, C; //, Ainit;
-char *target = "2415750341165530";
+uint64_t A, B, C;
+char *target = "0000000000000000";  // your target here, adjust len if not 16
+int len = 16;
 char output[32];
 
+void out(uint64_t V) { sprintf(output+strlen(output),"%ld",V&7); }
+
 void run(void) {
-    do {
-        B=A&7; B=B^5; C=A>>B; A=A>>3; B=B^C; B=B^6;
-        sprintf(output+strlen(output),"%ld",B&7);
-    } while (A);
+    // transpiled code here, i.e.
+L0:
+    // instructions
+    if (A) goto L0;
 }
 
 void try(int i, uint64_t Ainit) {
@@ -21,7 +24,7 @@ void try(int i, uint64_t Ainit) {
         B = C = 0;
         memset(output,0,32);
         run();
-        if (!strcmp(&target[i], output+strlen(output)-(15-i)-1)) {
+        if (!strcmp(&target[i], output+strlen(output)-(len-1-i)-1)) {
             if (!i) {
                 printf("%ld\n", tmpAinit);
                 exit(0);
@@ -32,5 +35,5 @@ void try(int i, uint64_t Ainit) {
 }
 
 int main(void) {
-    try(15, 0);
+    try(len-1, 0);
 }
