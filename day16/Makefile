@@ -1,9 +1,9 @@
 CFLAGS=-O3 -march=native -Wall -Wextra
 
-all: both
+all: both vis
 
-both: both.cpp
+%: %.cpp
 	$(CXX) $(CFLAGS) -o $@ $^
 
 clean:
-	rm -f both *~
+	rm -f vis both *~
