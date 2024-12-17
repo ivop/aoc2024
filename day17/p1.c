@@ -27,5 +27,5 @@ int main(int argc, char **argv) {
         case 7: C = A >> combo[mem[IP++]]; break;
         }
     }
-    putchar('\n');
+    printf("\b \n");
 }
