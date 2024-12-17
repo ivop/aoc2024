@@ -1,6 +1,6 @@
-CFLAGS=-O0 -g3 -march=native -Wall -Wextra
+CFLAGS=-O3 -march=native -Wall -Wextra -Wno-unused-result
 
-all: p1 p2test disasm p2
+all: p1 disasm p2
 
 %: %.c
 	$(CC) $(CFLAGS) -o $@ $^ -lm
