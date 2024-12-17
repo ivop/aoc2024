@@ -30,3 +30,8 @@ Use your input file instead of example, and plug the transpiled code into p2.c, 
 ./p2
 123456789123456789 # <--- your answer here
 ```
+
+You can test the output with p1:
+```
+./p1 large-number-here < input
+```
