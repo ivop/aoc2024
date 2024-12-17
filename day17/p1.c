@@ -3,8 +3,6 @@
 #include <stdlib.h>
 
 uint64_t A, B, C, IP = 1, tmp, memtop;
-char *line;
-size_t n;
 int mem[1000];
 
 int main(int argc, char **argv) {
@@ -12,8 +10,7 @@ int main(int argc, char **argv) {
     fscanf(stdin, "Register B: %ld\n", &B);
     fscanf(stdin, "Register C: %ld\n", &C);
     fscanf(stdin, "Program: %d", &mem[0]);
-    while (fscanf(stdin, ",%d", &mem[IP++])) ;
-    memtop = IP-1;
+    while (fscanf(stdin, ",%d", &mem[IP++])) memtop = IP;
     if (argc != 1) A = strtoll(argv[1],0,10);
     IP = 0;
     while (IP < memtop) {
