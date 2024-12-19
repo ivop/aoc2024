@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <string.h>
-#include <list>
+#include <stack>
 
 #define D 70
 #define WHEN 1024
@@ -31,11 +31,13 @@ int steps;
 
 bool run(void) {
     steps=0;
-    std::list<struct coor> pool;
-    std::list<struct coor> newpool;
-    pool.push_back({0,0});
+    std::stack<struct coor> pool;
+    std::stack<struct coor> newpool;
+    pool.push({0,0});
     while (!pool.empty()) {
-        for (auto c : pool) {
+        while (!pool.empty()) {
+            auto c = pool.top();
+            pool.pop();
             if (vis[c.y][c.x] <= steps) continue;
             vis[c.y][c.x] = steps;
             for (int d=0; d<4; d++) {
@@ -48,11 +50,10 @@ bool run(void) {
                     steps++;
                     return true;
                 }
-                newpool.push_back({ny,nx});
+                newpool.push({ny,nx});
             }
         }
         steps++;
-        pool.clear();
         pool.swap(newpool);
     }
     return false;
