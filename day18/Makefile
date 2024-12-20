@@ -1,10 +1,10 @@
 CFLAGS=-O3 -march=native -Wall -Wextra
 #CFLAGS=-O0 -g3 -march=native -Wall -Wextra
 
-all: both
+all: both dsu
 
 %: %.cpp
 	$(CXX) $(CFLAGS) -o $@ $^
 
 clean:
-	rm -f both *~
+	rm -f both dsu *~
