@@ -114,6 +114,6 @@ int main(void) {
         }
     }
     printf("part 2: ");
-    for (auto a : largestparty)print(a);
+    for (auto a : largestparty) print(a);
     printf("\b \n");
 }
